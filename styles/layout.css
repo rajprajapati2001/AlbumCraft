@@ -1,0 +1,199 @@
+       :root {
+            --grid-cols: 4;
+            --item-padding: 5px;
+            --font-size: 10px;
+            --img-radius: 0px;
+            --primary-blue: #2c3e50;
+            --accent-orange: #e67e22;
+            --border-val: 1px solid #e0e0e0;
+            --bg-item: white;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 10px;
+            background-color: #f4f7f6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* --- CONTROL BAR UI --- */
+        .control-bar {
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            padding: 15px 20px;
+            border: 1px solid #dfe6e9;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            z-index: 1000;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+            min-width: 140px;
+        }
+
+        .control-group label {
+            font-size: 10px;
+            font-weight: 800;
+            color: #95a5a6;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .val-badge { color: var(--accent-orange); font-weight: bold; }
+
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+        .btn-print { background-color: #13ad1b; }
+        .btn-download { background-color: var(--accent-orange); }
+        .btn-reset { background-color: #e74c3c; }
+
+        .checkbox-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .check-item {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: #f1f2f6;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 1px solid #dcdde1;
+            user-select: none;
+        }
+
+        .val-badge {
+            background: #34495e;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-left: 5px;
+            min-width: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .check-item input { display: none; }
+
+        .check-item:has(input:checked) {
+            background: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+        }
+
+        /* --- GRID SYSTEM --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(var(--grid-cols), 1fr);
+            gap: 8px;
+            width: 100%;
+            background: white;
+        }
+
+        .grid-item{
+            background: var(--bg-item);
+            text-align: center;
+            border: var(--border-val);
+            padding: var(--item-padding);
+            break-inside: avoid;
+            position: relative; overflow: hidden;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+        }
+        .grid-item[draggable="true"] { cursor: grab; }
+        .grid-item.dragging { opacity: 0.5; border: 2px dashed var(--accent-orange); }
+
+        .grid-item img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+            border-radius: var(--img-radius); /* Fixed Corners Bug */
+            transition: transform 0.3s ease;
+        }
+
+        .img-tools {
+            position: absolute; top: 25px; right: 10px; 
+            display: flex; gap: 4px; opacity: 0; transition: 0.3s; z-index: 10;
+        }
+        .grid-item:hover .img-tools { opacity: 1; }
+
+        .tool-btn {
+            background: rgba(44, 62, 80, 0.8); color: white; border: none;
+            border-radius: 4px; padding: 4px 8px; cursor: pointer; font-size: 10px;
+        }
+        .tool-btn:hover { background: var(--accent-orange); }
+        .btn-del { background: #e74c3c; } /* Red for remove */
+
+        /* Apply transformations to images */
+        .grid-item img { max-width: 100%; height: auto; transition: transform 0.3s ease; 
+    margin: auto; }
+
+        .metadata { margin-top: 5px; font-size: var(--font-size); color: #333; line-height: 1.2; }
+        .filename { font-size: 11px; font-weight: 700; display: block; margin-bottom: 2px; color: black; }
+
+        /* --- FOOTER --- */
+        #printArea footer {
+            margin-top: 25px;
+            padding: 15px;
+            text-align: center;
+            font-size: 13px;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .footer-logo { width: 18px; height: 18px; }
+        .print-timestamp { display: none; font-weight: 500; }
+
+        /* --- MOBILE FIX --- */
+        @media (max-width: 600px) {
+            .grid-container { grid-template-columns: repeat(var(--grid-cols), 1fr); }
+            .control-bar { position: relative; }
+            .img-tools { position: absolute; top: 5px; right: 5px; display: grid; gap: 4px; opacity: 0; transition: 0.3s; z-index: 10; }
+        }
+
+        .hide-date .date-part, .hide-time .time-part, .hide-sep .sep-part, .hide-name .filename { display: none; }
+        
+
+        @media print {
+            .hide-on-print { display: none !important; }
+            .control-bar { display: none !important; }
+            .print-timestamp { display: inline; }
+            #printArea footer { color: #000; border-top: none; }
+            @page { size: A4; margin: 5mm; }
+        }
