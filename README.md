@@ -30,7 +30,7 @@ A lightweight, browser-based tool to organize images, edit metadata, and export 
     * Automatically hides UI tools (trash/rotate icons) during export.
 
 ## 📸 ScreenShort
-![App Screenshot](screenshot.png)
+![App Screenshot](screenshot.jpg)
 
 ## 🚀 Getting Started
 
