@@ -1,8 +1,10 @@
-![icon](icon/albumcraft_circle_image.png)
+![icon](icon/albumcraft_circle_image_90x90.png)
 
 # AlbumCraft
 
 A lightweight, browser-based tool to organize images, edit metadata, and export them into a professional PDF layout. Perfect for documentation, field reports, or photo albums.
+
+🌐 Visit Web: [https://rajprajapati2001.github.io/AlbumCraft/](https://rajprajapati2001.github.io/AlbumCraft/)
 
 ![AlbumCraft Preview](https://img.shields.io/badge/Album-Craft-blue?style=for-the-badge)
 ![HTML](https://img.shields.io/badge/UI-HTML5-e34f26?logo=html5)
@@ -15,7 +17,6 @@ A lightweight, browser-based tool to organize images, edit metadata, and export 
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Github Repo](https://img.shields.io/badge/github-AlbumCraft-blue?logo=github)
 
-🌐 Visit Web: [solo-diary-khaki.vercel.app](https://solo-diary-khaki.vercel.app/)
 
 ## ✨ Features
 
