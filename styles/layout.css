@@ -11,9 +11,9 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 10px;
             background-color: #f4f7f6;
             display: flex;
+            margin: 0;
             flex-direction: column;
             min-height: 100vh;
         }
@@ -26,6 +26,7 @@
             padding: 15px 20px;
             border: 1px solid #dfe6e9;
             border-radius: 12px;
+            margin: 10px;
             margin-bottom: 25px;
             display: flex;
             flex-wrap: wrap;
